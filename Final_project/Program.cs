@@ -15,14 +15,18 @@ void SelectionText(string[] text)
     {
         if (text[i].Length <= 3)
             resultSelectionText[i] = text[i];
-        else resultSelectionText[i] = " ";
+        else 
+        {
+            string item = " ";
+            text = text.Where(e => e != item).ToArray();
+        }
         Console.Write(resultSelectionText[i] + " ");
     }
     Console.WriteLine();
 }
 
-
 Console.WriteLine("Input the text:");
 string text = Console.ReadLine();
 string[] words = text.Split(new char[] { ' ' });
 SelectionText(words);
+
